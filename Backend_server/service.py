@@ -6,14 +6,22 @@ from jsonrpc import JSONRPCResponseManager, dispatcher
 
 @dispatcher.add_method
 def foobar(**kwargs):
+    print("triger foobar")
     return kwargs["foo"] + kwargs["bar"]
+
+@dispatcher.add_method
+def add(*args):
+    args = list(args)
+    print(f"look{args[0]}")
+    return args[0] + args[1]
+
 
 @Request.application
 def application(request):
 # Dispatcher is dictionary {<method_name>: callable}
 
     dispatcher["echo"] = lambda s: s
-    dispatcher["add"] = lambda a, b: a + b
+    # dispatcher["add"] = lambda a, b: a + b
     response = JSONRPCResponseManager.handle(
         request.data, dispatcher)
     return Response(response.json, mimetype='application/json')

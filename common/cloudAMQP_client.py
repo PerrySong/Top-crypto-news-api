@@ -1,4 +1,5 @@
 import pika
+#Pika is a pure-Python implementation of the AMQP 0-9-1 protocol including RabbitMQ's extensions.
 import json
 
 class CloudAMQPClient:
