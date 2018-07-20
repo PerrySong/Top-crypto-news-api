@@ -1,0 +1,21 @@
+keyword argument: an argument preceded by an identifier (e.g. name=) in a function call or passed as a value in a dictionary preceded by **. For example, 3 and 5 are both keyword arguments in the following calls to complex():
+
+complex(real=3, imag=5)
+complex(**{'real': 3, 'imag': 5})
+positional argument: an argument that is not a keyword argument. Positional arguments can appear at the beginning of an argument list and/or be passed as elements of an iterable preceded by *. For example, 3 and 5 are both positional arguments in the following calls:
+
+complex(3, 5)
+complex(*(3, 5))
+
+What is message digest:
+A message digest is a cryptographic hash function containing a string of digits created by a one-way hashing formula.g formula.
+
+Unicode is a computing industry standard for the consistent encoding, representation, and handling of text expressed in most of the world's writing systems. ressed in most of the world's writing systems.
+
+bytes-like object:
+
+An object that supports the Buffer Protocol, like bytes, bytearray or memoryview. Bytes-like objects can be used for various 
+operations that expect binary data, such as compression, saving to a binary file or sending over a socket. Some operations need 
+the binary data to be mutable, in which case not all bytes-like objects can apply. in which case not all bytes-like objects can apply.
+
+hashlib: Secure hashes and message digests
