@@ -1,4 +1,5 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
+
 import datetime
 import hashlib
 import os
@@ -16,7 +17,7 @@ REDIS_PORT = 6379
 
 NEWS_TIME_OUT_IN_SECONDS = 3600 * 24
 
-SCRAPE_NEWS_TASK_QUEUE_URL = "amqp://vokupuoe:0pAmgXWULN59ZqJXDjV0Fxdpxj2gxFlh@otter.rmq.cloudamqp.com/vokupuoe"
+SCRAPE_NEWS_TASK_QUEUE_URL = "amqp://jsezaicq:wosEhOYiT42GTfWmquL4IIyBs0N0f-O4@otter.rmq.cloudamqp.com/jsezaicq"
 SCRAPE_NEWS_TASK_QUEUE_NAME = "tap-news-scrape-news-task-queue"
 
 NEWS_SOURCES = [

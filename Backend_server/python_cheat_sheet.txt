@@ -19,3 +19,17 @@ operations that expect binary data, such as compression, saving to a binary file
 the binary data to be mutable, in which case not all bytes-like objects can apply. in which case not all bytes-like objects can apply.
 
 hashlib: Secure hashes and message digests
+
+
+xpath: XPath is a major element in the XSLT standard.
+
+XPath can be used to navigate through elements and attributes in an XML document.
+
+
+Note that dump and load convert between files and objects, while dumps and loads convert between strings and objects. You can think of the s-less functions as wrappers around the s functions:
+
+def dump(obj, fh):
+    fh.write(dumps(obj))
+
+def load(fh):
+    return loads(fh.read())
