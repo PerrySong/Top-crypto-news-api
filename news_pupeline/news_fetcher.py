@@ -4,7 +4,7 @@ import os
 import sys
 
 # import common package in parent directory
-sys.path.append(os.path.join(os.path.dirname(__file__), '../..', 'common'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
 sys.path.append(os.path.join(os.path.dirname(__file__), 'scrapers'))
 
 import cnn_news_scraper
@@ -30,13 +30,14 @@ def handle_message(msg):
 
     # Now we support CNN only 
     if task['source'] == 'cnn':
-        print('Scraping CNN news')
+        print('Scraping CNN news: ')
         text = cnn_news_scraper.extract_news(task['url'])
+        print(text)
     else:
         print('News source [%s] is not supported.' % task['source'])
 
     task['text'] = text
-    scrape_news_queue_client.sendMessage(task)
+    # deduper_news_queue_client.sendMessage(task)
 
 
 while True:

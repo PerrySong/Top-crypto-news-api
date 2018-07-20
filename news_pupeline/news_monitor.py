@@ -36,6 +36,7 @@ def run():
         for news in news_list:
             news_digest = hashlib.md5(news['title'].encode('utf-8')).hexdigest()
 
+            # Check if the news have already been added to the queue
             if redis_client.get(news_digest) is None:
                 num_of_new_news = num_of_new_news + 1
                 news['digest'] = news_digest
