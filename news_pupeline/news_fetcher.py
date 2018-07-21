@@ -37,7 +37,7 @@ def handle_message(msg):
         print('News source [%s] is not supported.' % task['source'])
 
     task['text'] = text
-    # deduper_news_queue_client.sendMessage(task)
+    dedupe_news_queue_client.sendMessage(task)
 
 
 while True:
