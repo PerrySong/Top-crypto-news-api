@@ -10,7 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
 
 import news_api_client
 from cloudAMQP_client import CloudAMQPClient
-SLEEP_TIME_IN_SECONDS = 10
+SLEEP_TIME_IN_SECONDS = 60 * 2
 
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
@@ -37,6 +37,10 @@ def run():
             news_digest = hashlib.md5(news['title'].encode('utf-8')).hexdigest()
 
             # Check if the news have already been added to the queue
+            print('hahahaha')
+            print(f'digest = {news_digest}')
+            print(redis_client.get(news_digest))
+
             if redis_client.get(news_digest) is None:
                 num_of_new_news = num_of_new_news + 1
                 news['digest'] = news_digest
@@ -49,7 +53,8 @@ def run():
             redis_client.expire(news_digest, NEWS_TIME_OUT_IN_SECONDS)
 
             print(news)
-
+            if not news['publishedAt']:
+                news['publishedAt'] = datetime.datetime.now().time()
             cloudAMQP_client.sendMessage(news)
 
         print("Fetched %d new news." % num_of_new_news)

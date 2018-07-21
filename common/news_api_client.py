@@ -24,6 +24,8 @@ def getNewsFromSource(sources=DEFAILT_SOURCES, sortBy=SORT_BY_TOP):
         
         res_json = loads(response.content)
 
+        print(res_json)
+        
         if (res_json is not None and 
             res_json['status'] == 'ok' and
             res_json['source'] is not None):
