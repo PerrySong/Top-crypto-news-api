@@ -12,8 +12,12 @@ from cloudAMQP_client import CloudAMQPClient
 
 DEDUPE_NEWS_TASK_QUEUE_URL = "amqp://hstwbclj:wJyANU7kAFtbtCFqFeovylGxaHgX7ArM@otter.rmq.cloudamqp.com/hstwbclj"
 DEDUPE_NEWS_TASK_QUEUE_NAME = "tap-news-dedupe-news-task-queue"
-SCRAPE_NEWS_TASK_QUEUE_URL = "amqp://jsezaicq:wosEhOYiT42GTfWmquL4IIyBs0N0f-O4@otter.rmq.cloudamqp.com/jsezaicq"
-SCRAPE_NEWS_TASK_QUEUE_NAME = "tap-news-scrape-news-task-queue"
+
+SCRAPE_NEWS_TASK_QUEUE_URL = "amqp://ytprcnml:zGEBaewr54zh8rmvL1JYhqeA4QdVTXyN@otter.rmq.cloudamqp.com/ytprcnml"
+SCRAPE_NEWS_TASK_QUEUE_NAME = "test"
+
+# SCRAPE_NEWS_TASK_QUEUE_URL = "amqp://jsezaicq:wosEhOYiT42GTfWmquL4IIyBs0N0f-O4@otter.rmq.cloudamqp.com/jsezaicq"
+# SCRAPE_NEWS_TASK_QUEUE_NAME = "tap-news-scrape-news-task-queue"
 
 SLEEP_TIME_IN_SECONDS = 5
 

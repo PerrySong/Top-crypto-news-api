@@ -23,14 +23,26 @@ class CloudAMQPClient:
 
     def getMessage(self):
         method_frame, header_frame, body = self.channel.basic_get(self.queue_name)
+        # self.checkQueueLength()
+
         if method_frame is not None:
             print("[0] Received message from %s: %s" % (self.queue_name, body)) 
-            self.channel.basic_ack(method_frame.delivery_tag) # **
+            print(f'delivery_tag is: {method_frame.delivery_tag}')
+            # self.channel.basic_ack(method_frame.delivery_tag) # **
             return json.loads(body) 
         else:
             print('No message returned')
             return None
     
+    def checkQueueLength(self):
+        res = self.channel.queue_declare(
+                    queue="test",
+                    durable=True,
+                    exclusive=False,
+                    auto_delete=False
+                )
+        print('Messages in queue %d' % res.method.message_count)        
+
     # sleep
     def sleep(self, seconds):
         self.connection.sleep(seconds)
